@@ -81,7 +81,7 @@ while (count($r_arr_num) < 15) {
       $r_arr_num[] = $r_num;
    }
 }
-var_dump($r_arr_num);
+// var_dump($r_arr_num);
 
 
 //# -----------------BONUS:------------------------
@@ -135,13 +135,22 @@ $div_big_par = explode('.', $big_par);
          </li>
       <?php endfor; ?>
    </ul>
+   <!-- SNACK 3 -->
+   <h1>SNACK 3</h1>
+   <ol>
+      <?php foreach ($r_arr_num as $value) { ?>
+         <li>
+            <?php echo $value ?>
+         </li>
+      <?php } ?>
+   </ol>
    <!-- SNACK 4 -->
    <h1>SNACK 4</h1>
    <p><?php echo $big_par ?></p>
    <ul>
-      <?php for ($ii = 0; $ii < count($div_big_par); $ii++) : ?>
+      <?php for ($i = 0; $i < count($div_big_par); $i++) : ?>
          <li>
-            <?php echo $div_big_par[$ii] ?>
+            <?php echo $div_big_par[$i] ?>
          </li>
       <?php endfor; ?>
    </ul>
