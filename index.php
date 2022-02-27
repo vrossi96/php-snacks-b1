@@ -1,11 +1,4 @@
 <?php
-/* 
-
-Snack 5
-Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde. 
-*/
-
-
 //# SNACK 1
 // |Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
 
@@ -97,6 +90,32 @@ $big_par = "Per me si va ne la città dolente, per me si va ne l'etterno dolore,
 
 $div_big_par = explode('.', $big_par);
 
+
+//# SNACK 5
+// Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
+
+$db = [
+   'teachers' => [
+      [
+         'name' => 'Michele',
+         'lastname' => 'Papagni'
+      ],
+      [
+         'name' => 'Fabio',
+         'lastname' => 'Forghieri'
+      ]
+   ],
+   'pm' => [
+      [
+         'name' => 'Roberto',
+         'lastname' => 'Marazzini'
+      ],
+      [
+         'name' => 'Federico',
+         'lastname' => 'Pellegrini'
+      ]
+   ]
+];
 ?>
 
 <!DOCTYPE html>
@@ -107,6 +126,30 @@ $div_big_par = explode('.', $big_par);
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>PHP SNACKS B1</title>
+   <style type="text/css">
+      .gray,
+      .green {
+         color: white;
+         display: inline-block;
+         padding: 25px;
+      }
+
+      .gray ul,
+      .green ul {
+         padding: 0;
+         margin: 0;
+      }
+
+      .gray {
+         border: 3px solid #515151;
+         background-color: gray;
+      }
+
+      .green {
+         border: 3px solid green;
+         background-color: darkgreen;
+      }
+   </style>
 </head>
 
 <body>
@@ -154,6 +197,26 @@ $div_big_par = explode('.', $big_par);
          </li>
       <?php endfor; ?>
    </ul>
+   <!-- SNACK 5 -->
+   <h1>SNACK 5</h1>
+   <div class="gray">
+      <ul>
+         <?php foreach ($db['teachers'] as $value) { ?>
+            <li>
+               <?php echo $value['name'] . ' ' . $value['lastname'] ?>
+            </li>
+         <?php } ?>
+      </ul>
+   </div>
+   <div class="green">
+      <ul>
+         <?php foreach ($db['pm'] as $value) { ?>
+            <li>
+               <?php echo $value['name'] . ' ' . $value['lastname'] ?>
+            </li>
+         <?php } ?>
+      </ul>
+   </div>
 </body>
 
 </html>
