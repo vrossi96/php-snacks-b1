@@ -1,8 +1,6 @@
 <?php
 /* 
-BONUS:
-Snack 4
-Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: ogni punto un nuovo paragrafo.
+
 Snack 5
 Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde. 
 */
@@ -85,6 +83,20 @@ while (count($r_arr_num) < 15) {
 }
 var_dump($r_arr_num);
 
+
+//# -----------------BONUS:------------------------
+
+
+//# SNACK 4
+// |Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: ogni punto un nuovo paragrafo.
+
+// DIVIDERE stringa in base ad un delmitatore, crea un //!ARRAY
+//* explode(delimitatore, stringa);
+
+$big_par = "Per me si va ne la città dolente, per me si va ne l'etterno dolore, per me si va tra la perduta gente. Giustizia mosse il mio alto fattore;fecemi la divina podestate,la somma sapïenza e 'l primo amore. Dinanzi a me non fuor cose createse non etterne, e io etterno duro. Lasciate ogne speranza, voi ch'intrate";
+
+$div_big_par = explode('.', $big_par);
+
 ?>
 
 <!DOCTYPE html>
@@ -123,8 +135,16 @@ var_dump($r_arr_num);
          </li>
       <?php endfor; ?>
    </ul>
-   <!-- SNACK 3 -->
-   <h1>SNACK 3</h1>
+   <!-- SNACK 4 -->
+   <h1>SNACK 4</h1>
+   <p><?php echo $big_par ?></p>
+   <ul>
+      <?php for ($ii = 0; $ii < count($div_big_par); $ii++) : ?>
+         <li>
+            <?php echo $div_big_par[$ii] ?>
+         </li>
+      <?php endfor; ?>
+   </ul>
 </body>
 
 </html>
