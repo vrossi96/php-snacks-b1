@@ -23,7 +23,7 @@ if (strlen($user_name) > 3 && strpos($user_mail, '@') && strpos($user_mail, '.')
    $user_input_s1 = 'Accesso riuscito';
 };
 //# SNACK 2
-// Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
+// |Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
 //# Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
 
 $posts = [
@@ -64,7 +64,9 @@ $posts = [
       ]
    ],
 ];
+$date_posts = array_keys($posts);
 var_dump(array_keys($posts));
+var_dump($posts[$date_posts[2]][0]['text']);
 ?>
 
 <!DOCTYPE html>
@@ -90,9 +92,16 @@ var_dump(array_keys($posts));
    <!-- SNACK 2 -->
    <h1>SNACK 2</h1>
    <ul>
-      <?php for ($i = 0; $i < count($posts); $i++) : ?>
-         <li><?php DATA:
-               $posts[$i] ?>
+      <?php for ($i = 0; $i < count($date_posts); $i++) : ?>
+         <li>
+            <?php echo $date_posts[$i] ?>
+            <ul>
+               <?php for ($j = 0; $j < count($posts[$date_posts[$i]]); $j++) { ?>
+                  <li>
+                     <?php echo $posts[$date_posts[$i]][$j]['text'] ?>
+                  </li>
+               <?php } ?>
+            </ul>
          </li>
       <?php endfor; ?>
    </ul>
