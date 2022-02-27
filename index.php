@@ -1,16 +1,12 @@
 <?php
 /* 
-Snack 2
-
-Snack 3
-Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta.
-
 BONUS:
 Snack 4
 Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: ogni punto un nuovo paragrafo.
 Snack 5
 Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde. 
 */
+
 
 //# SNACK 1
 // |Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
@@ -22,6 +18,8 @@ $user_input_s1 = 'Accesso negato';
 if (strlen($user_name) > 3 && strpos($user_mail, '@') && strpos($user_mail, '.')) {
    $user_input_s1 = 'Accesso riuscito';
 };
+
+
 //# SNACK 2
 // |Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
 //# Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
@@ -67,6 +65,26 @@ $posts = [
 $date_posts = array_keys($posts);
 var_dump(array_keys($posts));
 var_dump($posts[$date_posts[2]][0]['text']);
+
+
+//# SNACK 3
+// |Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta.
+
+// CONTROLLO in un array
+//* in_array(valore, array);
+// AGGIUNGO in un array
+//* $array[] = 'valore';
+
+$r_arr_num = [];
+
+while (count($r_arr_num) < 15) {
+   $r_num = rand(1, 100);
+   if (!in_array($r_num, $r_arr_num)) {
+      $r_arr_num[] = $r_num;
+   }
+}
+var_dump($r_arr_num);
+
 ?>
 
 <!DOCTYPE html>
@@ -105,6 +123,8 @@ var_dump($posts[$date_posts[2]][0]['text']);
          </li>
       <?php endfor; ?>
    </ul>
+   <!-- SNACK 3 -->
+   <h1>SNACK 3</h1>
 </body>
 
 </html>
